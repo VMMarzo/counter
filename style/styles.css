@@ -1,0 +1,68 @@
+.duration-mobile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40vw;
+  height: 25vh;
+  margin: 0 24vw 0 30vw;
+  gap: 4vw;
+}
+.duration-mobile .wheel .wheel-title {
+  height: 0;
+  position: relative;
+  top: 12.5vh;
+  left: 16vw;
+  z-index: 1;
+  margin: 0;
+}
+.duration-mobile .wheel .button-mobile {
+  height: 6.25vh;
+}
+.duration-mobile .wheel .button-mobile .button-up {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom-left-radius: 0%;
+  border-bottom-right-radius: 0%;
+  width: 100%;
+  height: 100%;
+}
+.duration-mobile .wheel .button-mobile .button-down {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top-left-radius: 0%;
+  border-top-right-radius: 0%;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  top: -2.5vh;
+}
+.duration-mobile .wheel .button-mobile mat-icon {
+  margin: 0;
+  position: static;
+  transform: scale(2);
+  color: #061a2a;
+}
+.duration-mobile .wheel .wheel-content {
+  max-height: 12.5vh;
+  width: 24vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.duration-mobile .wheel .wheel-content .duration-field-mobile {
+  width: 100%;
+  height: 12.5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  z-index: -1;
+}
+.duration-mobile .wheel .wheel-content .duration-field-mobile input {
+  text-align: center;
+  font-size: 11vw;
+}
+
+/*# sourceMappingURL=styles.css.map */

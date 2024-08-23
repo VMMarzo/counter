@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Counter</title>
+    <link rel="stylesheet" href="style/styles.css">
+  </head>
+  <body>
+    <main>
+        <div class="duration-mobile">
+            <div class="wheel">
+              <p class="customized-font wheel-title">ore</p>
+              <div class="button-mobile">
+                <button mat-raised-button type="button" class="button-up customized-font"
+                  (mousedown)="startAddingHours()" (mouseup)="stopAddingHours()"><mat-icon>keyboard_arrow_up
+                  </mat-icon></button>
+              </div>
+              <div class="wheel-content">
+                <mat-form-field class="duration-field-mobile" appearance="fill" hideRequiredControl>
+                  <input matInput type="text" [value]="hours" readonly class="customized-font">
+                </mat-form-field>
+              </div>
+              <div class="button-mobile">
+                <button mat-raised-button type="button" class="button-down customized-font"
+                  (mousedown)="startSubtractingHours()"
+                  (mouseup)="stopSubtractingHours()"><mat-icon>keyboard_arrow_down</mat-icon></button>
+              </div>
+            </div>
+            <div class="wheel">
+              <p class="customized-font wheel-title">min</p>
+              <div class="button-mobile">
+                <button mat-raised-button type="button" class="button-up customized-font"
+                  (mousedown)="startAddingMinutes()"
+                  (mouseup)="stopAddingMinutes()"><mat-icon>keyboard_arrow_up</mat-icon></button>
+              </div>
+              <div class="wheel-content">
+                <mat-form-field class="duration-field-mobile" appearance="fill" hideRequiredControl>
+                  <input matInput type="text" [value]="minutes" readonly class="customized-font">
+                </mat-form-field>
+              </div>
+              <div class="button-mobile">
+                <button mat-raised-button type="button" class="button-down customized-font"
+                  (mousedown)="startSubtractingMinutes()"
+                  (mouseup)="stopSubtractingMinutes()"><mat-icon>keyboard_arrow_down</mat-icon></button>
+              </div>
+            </div>
+          </div>
+    </main>
+    <script src="main.js"></script>
+  </body>
+</html>

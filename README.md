@@ -23,6 +23,9 @@ The counter is displayed on the webpage. There are three buttons:
 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
+## TRY ME
+Try on: https://vmmarzo.github.io/counter/
+
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)

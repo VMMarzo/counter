@@ -1,151 +1,46 @@
+document.addEventListener('DOMContentLoaded', () => {
+  const hoursInput = document.getElementById('hours');
+  const minutesInput = document.getElementById('minutes');
 
-  isMobile: boolean = false;
+  let hours = 0;
+  let minutes = 0;
 
-
-  hours: number = 0;
-  minutes: number = 0;
-
-  private addHoursTimeoutId: any;
-  private addHoursIntervalId: any;
-
-  private subtractHoursTimeoutId: any;
-  private subtractHoursIntervalId: any;
-
-  private addMinutesTimeoutId: any;
-  private addMinutesIntervalId: any;
-
-  private subtractMinutesTimeoutId: any;
-  private subtractMinutesIntervalId: any;
-
-
-  timeAndRatingValidator(): ValidatorFn {
-    return (group: AbstractControl): { [key: string]: any } | null => {
-      const total = this.hours + this.minutes;
-      const validTime = total > 0;
-      const validRating = this.selectedStar > 0;
-      return validTime && validRating ? null : { 'invalidTimeOrRating': { value: group.value } };
-    };
+  function updateDisplay() {
+      hoursInput.value = hours;
+      minutesInput.value = minutes;
   }
 
-
-  checkWindowSize() {
-    this.isMobile = window.innerWidth <= 768;
+  function startAddingHours() {
+      hours += 1;
+      updateDisplay();
   }
 
-  addHours() {
-    if (this.hours < 99) {
-      this.hours++;
-    }
-    this.updateFormsValidity();
+  function startSubtractingHours() {
+      if (hours > 0) hours -= 1;
+      updateDisplay();
   }
 
-  subtractHours() {
-    if (this.hours > 0) {
-      this.hours--;
-    }
-    this.updateFormsValidity();
-  }
-
-  addMinutes() {
-    if (this.hours < 99 || this.minutes < 45) {
-      if (this.minutes < 45) {
-        this.minutes += 15;
-      } else {
-        this.minutes = 0;
-        this.addHours();
+  function startAddingMinutes() {
+      minutes += 15;
+      if (minutes >= 60) {
+          minutes = 0;
+          startAddingHours();
       }
-    }
-    this.updateFormsValidity();
+      updateDisplay();
   }
 
-  subtractMinutes() {
-    if (this.hours > 0 || this.minutes > 0) {
-      if (this.minutes > 0) {
-        this.minutes -= 15;
-      } else {
-        this.minutes = 45;
-        this.subtractHours();
+  function startSubtractingMinutes() {
+      if (minutes > 0) {
+          minutes -= 15;
+      } else if (hours > 0) {
+          minutes = 45;
+          startSubtractingHours();
       }
-    }
-    this.updateFormsValidity();
+      updateDisplay();
   }
 
-  startAddingHours() {
-    this.addHoursTimeoutId = setTimeout(() => {
-      this.addHoursIntervalId = setInterval(() => {
-        this.addHours();
-      }, 100);
-    }, 100);
-    this.updateFormsValidity();
-  }
-
-  stopAddingHours() {
-    if (this.addHoursTimeoutId) {
-      clearTimeout(this.addHoursTimeoutId);
-      this.addHours();
-    }
-    if (this.addHoursIntervalId) {
-      clearInterval(this.addHoursIntervalId);
-    }
-    this.updateFormsValidity();
-  }
-
-  startSubtractingHours() {
-    this.subtractHoursTimeoutId = setTimeout(() => {
-      this.subtractHoursIntervalId = setInterval(() => {
-        this.subtractHours();
-      }, 100);
-    }, 100);
-    this.updateFormsValidity();
-  }
-
-  stopSubtractingHours() {
-    if (this.subtractHoursTimeoutId) {
-      clearTimeout(this.subtractHoursTimeoutId);
-      this.subtractHours();
-    }
-    if (this.subtractHoursIntervalId) {
-      clearInterval(this.subtractHoursIntervalId);
-    }
-    this.updateFormsValidity();
-  }
-
-  startAddingMinutes() {
-    this.addMinutesTimeoutId = setTimeout(() => {
-      this.addMinutesIntervalId = setInterval(() => {
-        this.addMinutes();
-      }, 100);
-    }, 100);
-    this.updateFormsValidity();
-  }
-
-  stopAddingMinutes() {
-    if (this.addMinutesTimeoutId) {
-      clearTimeout(this.addMinutesTimeoutId);
-      this.addMinutes();
-    }
-    if (this.addMinutesIntervalId) {
-      clearInterval(this.addMinutesIntervalId);
-    }
-    this.updateFormsValidity();
-  }
-
-  startSubtractingMinutes() {
-    this.subtractMinutesTimeoutId = setTimeout(() => {
-      this.subtractMinutesIntervalId = setInterval(() => {
-        this.subtractMinutes();
-      }, 100);
-    }, 100);
-    this.updateFormsValidity();
-  }
-
-  stopSubtractingMinutes() {
-    if (this.subtractMinutesTimeoutId) {
-      clearTimeout(this.subtractMinutesTimeoutId);
-      this.subtractMinutes();
-    }
-    if (this.subtractMinutesIntervalId) {
-      clearInterval(this.subtractMinutesIntervalId);
-    }
-    this.updateFormsValidity();
-  }
+  document.getElementById('addHours').addEventListener('click', startAddingHours);
+  document.getElementById('subtractHours').addEventListener('click', startSubtractingHours);
+  document.getElementById('addMinutes').addEventListener('click', startAddingMinutes);
+  document.getElementById('subtractMinutes').addEventListener('click', startSubtractingMinutes);
+});

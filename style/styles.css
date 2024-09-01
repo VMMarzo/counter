@@ -1,68 +1,129 @@
-.duration-mobile {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40vw;
-  height: 25vh;
-  margin: 0 24vw 0 30vw;
-  gap: 4vw;
+@media (min-width: 600px) {
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #EEF5FF;
+    color: #176B87;
+  }
+  body .main {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  body .main .title-row {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  body .content {
+    display: flex;
+    justify-content: space-between;
+  }
+  body .content .duration {
+    display: flex;
+    align-items: center;
+  }
+  body .content .duration .duration-field {
+    display: flex;
+    height: 100%;
+    text-align: center;
+    margin: 0 10px;
+  }
+  body .content .duration .duration-field input {
+    width: 50px;
+    text-align: center;
+    border: none;
+    background-color: #EEF5FF;
+    border-radius: 4px;
+  }
+  body .content .duration .duration-field span {
+    height: 100%;
+    align-content: center;
+    justify-content: center;
+    padding-left: 5px;
+  }
+  body .content .duration button {
+    background-color: #86B6F6;
+    border: none;
+    color: white;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  body .content .duration button.primary {
+    background-color: #B4D4FF;
+  }
 }
-.duration-mobile .wheel .wheel-title {
-  height: 0;
-  position: relative;
-  top: 12.5vh;
-  left: 16vw;
-  z-index: 1;
-  margin: 0;
-}
-.duration-mobile .wheel .button-mobile {
-  height: 6.25vh;
-}
-.duration-mobile .wheel .button-mobile .button-up {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-bottom-left-radius: 0%;
-  border-bottom-right-radius: 0%;
-  width: 100%;
-  height: 100%;
-}
-.duration-mobile .wheel .button-mobile .button-down {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-top-left-radius: 0%;
-  border-top-right-radius: 0%;
-  width: 100%;
-  height: 100%;
-  position: relative;
-  top: -2.5vh;
-}
-.duration-mobile .wheel .button-mobile mat-icon {
-  margin: 0;
-  position: static;
-  transform: scale(2);
-  color: #061a2a;
-}
-.duration-mobile .wheel .wheel-content {
-  max-height: 12.5vh;
-  width: 24vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.duration-mobile .wheel .wheel-content .duration-field-mobile {
-  width: 100%;
-  height: 12.5vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 2rem;
-  z-index: -1;
-}
-.duration-mobile .wheel .wheel-content .duration-field-mobile input {
-  text-align: center;
-  font-size: 11vw;
+@media (max-width: 600px) {
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #EEF5FF;
+    color: #176B87;
+    display: flex;
+    justify-content: center;
+  }
+  body .main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    margin: 0;
+    width: 300px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  }
+  body .main .title-row {
+    text-align: center;
+    margin-bottom: 15px;
+  }
+  body .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  body .content .duration {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    width: 100%;
+  }
+  body .content .duration button {
+    background-color: #86B6F6;
+    border: none;
+    color: white;
+    padding: 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 40px;
+    flex-shrink: 0;
+  }
+  body .content .duration button span {
+    font-size: 1.2em;
+  }
+  body .content .duration .duration-field {
+    width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 0 5px;
+    flex-grow: 1;
+  }
+  body .content .duration .duration-field input {
+    width: 50px;
+    text-align: center;
+    border: none;
+    background-color: #EEF5FF;
+    border-radius: 4px;
+  }
+  body .content .duration .duration-field span {
+    padding-left: 5px;
+    font-size: 0.9em;
+  }
 }
 
 /*# sourceMappingURL=styles.css.map */
